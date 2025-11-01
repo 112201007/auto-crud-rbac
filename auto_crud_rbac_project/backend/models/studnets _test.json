@@ -1,0 +1,23 @@
+{
+  "name": "studnets _test",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  }
+}

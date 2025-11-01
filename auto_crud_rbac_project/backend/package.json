@@ -1,0 +1,25 @@
+{
+  "name": "auto-crud-rbac-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "prisma": "^5.0.0",
+    "@prisma/client": "^5.0.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.0"
+  }
+}
