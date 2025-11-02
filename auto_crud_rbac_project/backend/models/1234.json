@@ -1,0 +1,33 @@
+{
+  "name": "1234",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "cpol2",
+      "type": "string",
+      "required": false,
+      "unique": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "tableName": "1234"
+}

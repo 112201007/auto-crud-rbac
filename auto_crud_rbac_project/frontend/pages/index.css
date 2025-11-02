@@ -143,3 +143,54 @@ All colors MUST be HSL.
     }
   }
 }
+
+
+.modelFormRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* Model name and table name inputs */
+.input {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0070f3;
+}
+
+/* Description full width below */
+.textarea {
+  flex-basis: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #0070f3;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .input {
+    flex-basis: 100%;
+  }
+}
