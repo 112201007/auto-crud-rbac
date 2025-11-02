@@ -28,9 +28,14 @@ export async function createTableForModel(model: any) {
     })
     .join(", ");
 
+  const ownerColumnSql = model.ownerField
+    ? `, "${model.ownerField}" TEXT`
+    : "";
+
   const sql = `CREATE TABLE IF NOT EXISTS "${tableName}" (
     id SERIAL PRIMARY KEY,
     ${columns}
+    ${ownerColumnSql}
   );`;
 
   await pool.query(sql);

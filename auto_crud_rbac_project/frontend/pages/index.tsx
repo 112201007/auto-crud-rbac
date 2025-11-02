@@ -13,6 +13,9 @@ type Field = {
 
 type ModelDef = {
   name: string;
+  tableName,
+  description,
+  ownerField?: string;
   fields: Field[];
   rbac: Record<string, string[]>;
 };
@@ -35,12 +38,19 @@ export default function AdminIndex() {
 
   const [tableName, setTableName] = useState("");
   const [description, setDescription] = useState("");
+  const [ownerField, setOwnerField] = useState("ownerId");
+
   // When model name changes, update tableName if empty
   useEffect(() => {
     if (name && !tableName) {
       setTableName(name.toLowerCase() + "s");
     }
   }, [name]);
+useEffect(() => {
+  if (!ownerField && name) {
+    setOwnerField("ownerId");
+  }
+}, [name]);
 
 
   useEffect(() => {
@@ -76,7 +86,9 @@ export default function AdminIndex() {
   };
 
   async function createModel() {
-    const model: ModelDef = { name, fields, rbac: permissions };
+    // const model: ModelDef = { name, fields, rbac: permissions };
+      const model: ModelDef = { name, tableName, description, ownerField, fields, rbac: permissions };
+
     try {
       const res = await fetch(`${API}/admin/models`, {
         method: "POST",
@@ -115,7 +127,6 @@ export default function AdminIndex() {
       <div className={styles.card}>
         <h3>Create New Model</h3>
           <div className={styles.card}>
-            <h3>Create New Model</h3>
 
             <div
               style={{
@@ -168,6 +179,20 @@ export default function AdminIndex() {
                   marginTop: "10px",
                 }}
               />
+
+              <input
+  className={styles.input}
+  value={ownerField}
+  onChange={(e) => setOwnerField(e.target.value)}
+  placeholder="Owner field name (optional)"
+  style={{
+    flex: "1",
+    minWidth: "250px",
+    padding: "10px 12px",
+    border: "1px solid #ccc",
+    borderRadius: "6px",
+  }}
+/>
             </div>
           </div>
 
@@ -185,10 +210,53 @@ export default function AdminIndex() {
               value={f.type}
               onChange={(e) => updateField(i, "type", e.target.value)}
             >
-              <option value="string">string</option>
-              <option value="number">number</option>
-              <option value="boolean">boolean</option>
+              <optgroup label="Text">
+                <option value="text">text</option>
+                <option value="varchar">varchar</option>
+              </optgroup>
+
+              <optgroup label="Numbers">
+                <option value="integer">integer</option>
+                <option value="bigint">bigint</option>
+                <option value="decimal">decimal</option>
+                <option value="numeric">numeric</option>
+                <option value="real">real</option>
+                <option value="double precision">double precision</option>
+              </optgroup>
+
+              <optgroup label="Boolean">
+                <option value="boolean">boolean</option>
+              </optgroup>
+
+              <optgroup label="Date & Time">
+                <option value="date">date</option>
+                <option value="timestamp">timestamp</option>
+                <option value="timestamptz">timestamptz</option>
+              </optgroup>
+
+              <optgroup label="Identifiers / Relations">
+                <option value="serial">serial</option>
+                <option value="bigserial">bigserial</option>
+                <option value="uuid">uuid</option>
+              </optgroup>
+
+              <optgroup label="Structured">
+                <option value="json">json</option>
+                <option value="jsonb">jsonb</option>
+              </optgroup>
+
+              <optgroup label="Array">
+                <option value="text[]">text[]</option>
+                <option value="integer[]">integer[]</option>
+              </optgroup>
+
+              <optgroup label="Other">
+                <option value="bytea">bytea (binary)</option>
+                <option value="enum">enum</option>
+              </optgroup>
             </select>
+
+
             <label className={styles.checkboxLabel}>
               <input
                 type="checkbox"

@@ -20,5 +20,6 @@
       "read"
     ]
   },
-  "tableName": "testcreatemodel"
+  "tableName": "testcreatemodel",
+  "published": true
 }

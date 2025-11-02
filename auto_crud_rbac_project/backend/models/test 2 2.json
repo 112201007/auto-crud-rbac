@@ -20,5 +20,6 @@
       "read"
     ]
   },
-  "tableName": "test_2_2"
+  "tableName": "test_2_2",
+  "published": true
 }

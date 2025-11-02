@@ -10,13 +10,24 @@ export type FieldDef = {
   relation?: { model: string; field: string };
 };
 
+// export type ModelDef = {
+//   name: string;
+//   tableName?: string;
+//   fields: FieldDef[];
+//   ownerField?: string | null;
+//   rbac: Record<string, string[]>;
+// };
+
 export type ModelDef = {
   name: string;
-  tableName?: string;
-  fields: FieldDef[];
-  ownerField?: string | null;
+  tableName: string;
+  description: string;
+  ownerField?: string;
+  fields: Field[];
   rbac: Record<string, string[]>;
+  published?: boolean;  // optional because new models won't have this until published
 };
+
 
 const MODELS_DIR = path.join(process.cwd(), "models");
 

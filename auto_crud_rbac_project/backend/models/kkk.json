@@ -1,15 +1,18 @@
 {
-  "name": "testingg 23",
+  "name": "kkk",
   "fields": [
     {
-      "name": "name",
+      "name": "id4",
       "type": "string",
       "required": true
     }
   ],
   "rbac": {
     "Admin": [
-      "all"
+      "create",
+      "read",
+      "update",
+      "delete"
     ],
     "Manager": [
       "create",
@@ -20,6 +23,6 @@
       "read"
     ]
   },
-  "tableName": "testingg_23",
+  "tableName": "kkk",
   "published": true
 }

@@ -29,5 +29,6 @@
       "read"
     ]
   },
-  "tableName": "product"
+  "tableName": "product",
+  "published": true
 }

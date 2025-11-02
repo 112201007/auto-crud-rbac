@@ -66,33 +66,66 @@ async function initModels(app: express.Express) {
   });
 
   // Admin: publish model -> write file + register routes + persist ModelFile
+  // app.post("/admin/models/:name/publish", async (req, res) => {
+  //   const name = req.params.name;
+  //   const model = modelRegistry[name];
+  //   if (!model) return res.status(404).json({ error: "Model not found" });
+  //     // ✅ Normalize table name before writing or creating table
+  // model.tableName = (model.tableName || model.name)
+  //   .trim()
+  //   .toLowerCase()
+  //   .replace(/\s+/g, "_");
+  //   const path = writeModelFile(model);
+
+  //   // ⬅️ Create the real table when model is published too
+  //   try {
+  //     await createTableForModel(model);
+  //     console.log(`✅ Table ensured for ${model.name}`);
+  //   } catch (err) {
+  //     console.error(`❌ Failed to create table for ${model.name}:`, err);
+  //   }
+
+  //   registerModelRoutes(app, model);
+  //   await prisma.modelFile.upsert({
+  //     where: { name: model.name },
+  //     update: { content: model, filePath: path },
+  //     create: { name: model.name, content: model, filePath: path },
+  //   });
+  //   return res.json({ ok: true, path });
+  // });
+
   app.post("/admin/models/:name/publish", async (req, res) => {
-    const name = req.params.name;
-    const model = modelRegistry[name];
-    if (!model) return res.status(404).json({ error: "Model not found" });
-      // ✅ Normalize table name before writing or creating table
+  const name = req.params.name;
+  const model = modelRegistry[name];
+  if (!model) return res.status(404).json({ error: "Model not found" });
+
   model.tableName = (model.tableName || model.name)
     .trim()
     .toLowerCase()
     .replace(/\s+/g, "_");
-    const path = writeModelFile(model);
 
-    // ⬅️ Create the real table when model is published too
-    try {
-      await createTableForModel(model);
-      console.log(`✅ Table ensured for ${model.name}`);
-    } catch (err) {
-      console.error(`❌ Failed to create table for ${model.name}:`, err);
-    }
+  try {
+    await createTableForModel(model);
+    console.log(`✅ Table ensured for ${model.name}`);
+  } catch (err) {
+    console.error(`❌ Failed to create table for ${model.name}:`, err);
+  }
 
-    registerModelRoutes(app, model);
-    await prisma.modelFile.upsert({
-      where: { name: model.name },
-      update: { content: model, filePath: path },
-      create: { name: model.name, content: model, filePath: path },
-    });
-    return res.json({ ok: true, path });
+  registerModelRoutes(app, model);
+
+  // Set published flag here
+  model.published = true;
+
+  const path = writeModelFile(model);
+
+  await prisma.modelFile.upsert({
+    where: { name: model.name },
+    update: { content: model, filePath: path },
+    create: { name: model.name, content: model, filePath: path },
   });
+
+  return res.json({ ok: true, path });
+});
 
   // List models
   app.get("/admin/models", (req, res) => {

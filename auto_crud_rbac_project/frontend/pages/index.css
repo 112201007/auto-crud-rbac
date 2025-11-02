@@ -194,3 +194,28 @@ All colors MUST be HSL.
     flex-basis: 100%;
   }
 }
+
+
+
+
+
+
+.publishBtn {
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.publishBtn:hover {
+  background-color: #2779bd;
+}
+
+.published {
+  background-color: #4caf50; /* green */
+  cursor: default;
+  pointer-events: none; /* disable button */
+}

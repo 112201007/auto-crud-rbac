@@ -41,5 +41,6 @@
       "create"
     ]
   },
-  "tableName": "totalnew"
+  "tableName": "totalnew",
+  "published": true
 }

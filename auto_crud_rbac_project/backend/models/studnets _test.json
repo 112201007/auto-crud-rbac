@@ -19,5 +19,7 @@
     "Viewer": [
       "read"
     ]
-  }
+  },
+  "tableName": "studnets__test",
+  "published": true
 }

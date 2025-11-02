@@ -36,5 +36,6 @@
       "read"
     ]
   },
-  "tableName": "student_courses"
+  "tableName": "student_courses",
+  "published": true
 }
