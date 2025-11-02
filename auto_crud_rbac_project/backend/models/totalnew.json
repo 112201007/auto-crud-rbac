@@ -1,0 +1,45 @@
+{
+  "name": "totalnew",
+  "fields": [
+    {
+      "name": "col1",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "col2",
+      "type": "number",
+      "required": false,
+      "unique": true
+    },
+    {
+      "name": "col3",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "name": "col4",
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read",
+      "create"
+    ]
+  },
+  "tableName": "totalnew"
+}

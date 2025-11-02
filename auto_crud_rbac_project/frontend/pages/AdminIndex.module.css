@@ -1,0 +1,142 @@
+.container {
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+  background: #fafafa;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.message {
+  color: green;
+  font-weight: 500;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.input, .select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex: 1;
+}
+
+.checkboxLabel {
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addBtn, .primaryBtn, .deleteBtn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: background 0.2s;
+}
+
+.addBtn {
+  background: #e6e6e6;
+}
+
+.primaryBtn {
+  background: #0070f3;
+  color: white;
+  margin-top: 10px;
+}
+
+.deleteBtn {
+  background: #ffb3b3;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+.modelList {
+  list-style: none;
+  padding: 0;
+}
+.modelItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ensures name left, buttons right */
+  gap: 12px;
+  background: white;
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.modelName {
+  font-weight: 500;
+  flex: 1; /* pushes buttons to right */
+}
+
+.modelActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+
+.publishBtn {
+  background: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s;
+}
+
+.publishBtn:hover {
+  background: #ccc;
+}
+
+.published {
+  background: #4caf50 !important;
+  color: white;
+}
+
+.linkBtn {
+  text-decoration: none;
+  background: #0070f3;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.modelName {
+  flex: 1;
+  font-weight: 500;
+}

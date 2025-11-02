@@ -28,5 +28,6 @@
     "Viewer": [
       "read"
     ]
-  }
+  },
+  "tableName": "product"
 }
