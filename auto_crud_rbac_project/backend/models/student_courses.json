@@ -1,0 +1,40 @@
+{
+  "name": "student_courses",
+  "fields": [
+    {
+      "name": "ispresent",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "name": "courses",
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    {
+      "name": "marks",
+      "type": "number",
+      "required": false
+    },
+    {
+      "name": "dob",
+      "type": "string",
+      "required": false
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "tableName": "student_courses"
+}
