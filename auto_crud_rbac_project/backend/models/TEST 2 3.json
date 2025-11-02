@@ -1,0 +1,24 @@
+{
+  "name": "TEST 2 3",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "tableName": "test_2_3"
+}

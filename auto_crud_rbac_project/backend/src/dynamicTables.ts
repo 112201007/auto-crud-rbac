@@ -1,7 +1,6 @@
 import { Pool } from "pg";
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-// Creates a real PostgreSQL table for the given model
 export async function createTableForModel(model: any) {
   const tableName = (model.tableName || model.name).toLowerCase();
 
@@ -20,9 +19,7 @@ export async function createTableForModel(model: any) {
         f.unique ? "UNIQUE" : "",
         f.default != null
           ? `DEFAULT ${
-              typeof f.default === "string"
-                ? `'${f.default}'`
-                : f.default
+              typeof f.default === "string" ? `'${f.default}'` : f.default
             }`
           : "",
       ].join(" ");
