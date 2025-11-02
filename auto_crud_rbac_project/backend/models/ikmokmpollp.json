@@ -1,0 +1,38 @@
+{
+  "name": "ikmokmpollp",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "tyy",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "kml",
+      "type": "string",
+      "required": false,
+      "unique": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "tableName": "ikmokmpollp"
+}

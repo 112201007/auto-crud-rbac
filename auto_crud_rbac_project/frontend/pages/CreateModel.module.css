@@ -1,0 +1,150 @@
+/* Layout */
+.createModelContainer {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #0b0d16;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #121420;
+  color: #e6e8ef;
+  border: 1px solid #1e2230;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  padding: 28px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Headings */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #9da5b4;
+}
+
+/* Sections */
+.section {
+  background-color: #171b2a;
+  border: 1px solid #1f2536;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin-bottom: 6px;
+}
+
+/* Fields */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  background-color: #1d2233;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.fieldActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addFieldBtn {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* Role Permissions */
+.permissionsTable {
+  display: grid;
+  gap: 8px;
+}
+
+.permissionsHeader,
+.permissionsRow {
+  display: grid;
+  grid-template-columns: 150px repeat(4, 1fr);
+  align-items: center;
+  text-align: center;
+}
+
+.permissionsHeader {
+  color: #9da5b4;
+  font-weight: 600;
+}
+
+.permissionsRow {
+  background-color: #1d2233;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+
+.roleName {
+  text-align: left;
+  font-weight: 600;
+  padding-left: 12px;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+/* Inputs & Buttons */
+.createModelContainer input,
+.createModelContainer select,
+.createModelContainer button {
+  background-color: #23283b;
+  color: #f3f4f6;
+  border: 1px solid #2c3248;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.createModelContainer input:focus,
+.createModelContainer select:focus {
+  outline: none;
+  border-color: #3d64ff;
+}
+
+.createModelContainer button {
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #3d64ff;
+  border: none;
+  transition: 0.2s;
+}
+
+.createModelContainer button:hover {
+  background-color: #3455d1;
+}
+
+.statusText {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
