@@ -36,6 +36,6 @@ export async function ensureSeedUsers() {
 
 export function mockAuth(req: Request, res: Response, next: NextFunction) {
   // Simulate logged-in Admin user
-  (req as any).user = { id: 1, role: "Admin" };
+  (req as any).user = { id: "1", role: "Admin" };
   next();
 }

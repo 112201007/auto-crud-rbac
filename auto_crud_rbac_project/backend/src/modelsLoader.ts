@@ -10,14 +10,6 @@ export type FieldDef = {
   relation?: { model: string; field: string };
 };
 
-// export type ModelDef = {
-//   name: string;
-//   tableName?: string;
-//   fields: FieldDef[];
-//   ownerField?: string | null;
-//   rbac: Record<string, string[]>;
-// };
-
 export type ModelDef = {
   name: string;
   tableName: string;
