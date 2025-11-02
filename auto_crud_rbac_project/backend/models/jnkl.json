@@ -1,0 +1,27 @@
+{
+  "name": "jnkl",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "tableName": "jnkl"
+}
